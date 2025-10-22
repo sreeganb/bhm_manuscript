@@ -1,0 +1,433 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is a (brief) model paper using the achemso class
+%% The document class accepts keyval options, which should include
+%% the target journal and optionally the manuscript type.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[journal=jcim,manuscript=article]{achemso}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional packages needed here.  Only include packages
+%% which are essential, to avoid problems later.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{chemformula} % Formula subscripts using \ch{}
+\usepackage[T1]{fontenc} % Use modern font encodings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% If issues arise when submitting your manuscript, you may want to
+%% un-comment the next line.  This provides information on the
+%% version of every file you have used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\listfiles
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{tikz}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{tikz-3dplot}%
+\usepackage{pgf}
+\usetikzlibrary{positioning}
+%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional macros here.  Please use \newcommand* where
+%% possible, and avoid layout-changing macros (which are not used
+%% when typesetting).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+% Define custom color for your comments
+\definecolor{sreegreen}{RGB}{0,128,0}  % Forest green color
+
+% Create \sree command with colored text
+\newcommand{\sree}[1]{%
+    \textcolor{sreegreen}{#1}%
+}
+
+\definecolor{ignacia}{RGB}{120,0,0}
+
+\newcommand{\ignacia}[1]{%
+    \textcolor{ignacia} {#1}% 
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Meta-data block
+%% ---------------
+%% Each author should be given as a separate \author command.
+%%
+%% Corresponding authors should have an e-mail given after the author
+%% name as an \email command. Phone and fax numbers can be given
+%% using \phone and \fax, respectively; this information is optional.
+%%
+%% The affiliation of authors is given after the authors; each
+%% \affiliation command applies to all preceding authors not already
+%% assigned an affiliation.
+%%
+%% The affiliation takes an option argument for the short name.  This
+%% will typically be something like "University of Somewhere".
+%%
+%% The \altaffiliation macro should be used for new address, etc.
+%% On the other hand, \alsoaffiliation is used on a per author basis
+%% when authors are associated with multiple institutions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Andrew N. Other}
+\altaffiliation{A shared footnote}
+\author{Fred T. Secondauthor}
+\altaffiliation{Current address: Some other place, Othert\"own,
+Germany}
+\author{I. Ken Groupleader}
+\altaffiliation{A shared footnote}
+\email{i.k.groupleader@unknown.uu}
+\phone{+123 (0)123 4445556}
+\fax{+123 (0)123 4445557}
+\affiliation[Unknown University]
+{Department of Chemistry, Unknown University, Unknown Town}
+\alsoaffiliation[Second University]
+{Department of Chemistry, Second University, Nearby Town}
+\author{Susanne K. Laborator}
+\email{s.k.laborator@bigpharma.co}
+\affiliation[BigPharma]
+{Lead Discovery, BigPharma, Big Town, USA}
+\author{Kay T. Finally}
+\affiliation[Unknown University]
+{Department of Chemistry, Unknown University, Unknown Town}
+\alsoaffiliation[Second University]
+{Department of Chemistry, Second University, Nearby Town}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The document title should be given as usual. Some journals require
+%% a running title from the author: this should be supplied as an
+%% optional argument to \title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[An \textsf{achemso} demo]
+  {A demonstration of the \textsf{achemso} \LaTeX\
+   class\footnote{A footnote for the title}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some journals require a list of abbreviations or keywords to be
+%% supplied. These should be set up here, and will be printed after
+%% the title and author information, if needed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\abbreviations{IR,NMR,UV}
+\keywords{American Chemical Society, \LaTeX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The manuscript does not need to include \maketitle, which is
+%% executed automatically.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "tocentry" environment can be used to create an entry for the
+%% graphical table of contents. It is given here as some journals
+%% require that it is printed as part of the abstract page. It will
+%% be automatically moved as appropriate.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tocentry}
+
+Some journals require a graphical entry for the Table of Contents.
+This should be laid out ``print ready'' so that the sizing of the
+text is correct.
+
+Inside the \texttt{tocentry} environment, the font used is Helvetica
+8\,pt, as required by \emph{Journal of the American Chemical
+Society}.
+
+The surrounding frame is 9\,cm by 3.5\,cm, which is the maximum
+permitted for  \emph{Journal of the American Chemical Society}
+graphical table of content entries. The box will not resize if the
+content is too big: instead it will overflow the edge of the box.
+
+This box and the associated title will always be printed on a
+separate page at the end of the document.
+
+\end{tocentry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The abstract environment will automatically gobble the contents
+%% if an abstract is not used by the target journal.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+  This is an example document for the \textsf{achemso} document
+  class, intended for submissions to the American Chemical Society
+  for publication. The class is based on the standard \LaTeXe\
+  \textsf{report} file, and does not seek to reproduce the appearance
+  of a published paper.
+
+  This is an abstract for the \textsf{achemso} document class
+  demonstration document.  An abstract is only allowed for certain
+  manuscript types.  The selection of \texttt{journal} and
+  \texttt{manuscript} will determine if an abstract is valid.  If
+  not, the class will issue an appropriate error.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Start the main part of the manuscript here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec1}
+
+(Challenge of determining structures of non-homogeneous protein assemblies that lack regular or symmetrical organization) Structural determination of large, non-homogeneous protein assemblies remains a significant challenge in structural biology despite recent advances in experimental techniques. These assemblies, characterized by compositional variability represented as variable stoichiometries and conformational heterogeneity, often resist crystallization and lack the symmetry required for single-particle cryo-electron microscopy analysis \cite{Topf08Structure16p295} (CITE). However, many of these assemblies perform essential cellular functions through dynamic rearrangements of their components and have modular architectures with multiple copies of the same protein occurring in similar contexts (CITE). \cite{Boeckers06CellandTissuep409,Devos06PNAS103p2172} Some examples include the nuclear pore complex \cite{Alber07Nature450p695}, clathrin-coated vesicles \cite{Devos04PLOSBiology2p380}, DNA damage response foci \cite{Polo11GenesDev25p409}, and focal adhesions \cite{Geiger01NatRevMolCellBiol2p793,Mishra21CellSignal85p110046}.
+
+(Current structural biology techniques and their limitations when applied to heterogeneous protein assemblies) \ignacia{Alternative approaches to traditional structural biology methods include} integrative/hybrid structure modeling 9–11, which are robust and complementary tools for determining the structures of protein assemblies. These methods combine information from multiple sources, including experiments, computational predictions, and biophysical considerations, to generate structural models that satisfy all available information within their respective uncertainties. More recently, integrative structure models can also incorporate models obtained using deep-learning approaches such as structure predictions \cite{Stahl23NatBiotechnol41p1810} (CITE), MUSIC, and XX. However, integrative methods often struggle with assemblies that exhibit variability in stoichiometry or contain large regions of intrinsic disorder.  
+
+(Bayesian Hierarchical Modeling (BHM) as a novel approach for elucidating the structure of complex protein assemblies) We propose Bayesian Hierarchical Modeling (BHM) as a natural extension of current integrative structure modeling approaches by formalizing protein assemblies as nested probabilistic structures with explicit dependencies between organizational levels. While integrative methods have made progress in combining multiple data types, BHM offers a statistical framework to represent the inherently hierarchical nature of protein complexes—from domains to subunits to subcomplexes to complete assemblies. The key innovation of BHM lies in its treatment of repeating structural motifs through shared parametric distributions and its ability to propagate uncertainty between levels through conditional probabilities. Similarly to IM, by modeling component positions and orientations as distributions rather than point estimates, BHM captures structural heterogeneity at each hierarchical level and leverages Markov Chain Monte Carlo sampling to generate structural ensembles that quantitatively represent both the most probable configurations and the confidence in these predictions, providing insights even when traditional methods fail due to flexibility or compositional heterogeneity.
+
+(Explanation of how BHM can integrate diverse types of structural data to generate models of heterogeneous assemblies) The multi-level architecture of BHM provides specific advantages for integrating diverse sources of data and input information by matching each data or information type to its appropriate hierarchical level. High-resolution atomic structures inform domain-level priors, while crosslinking mass spectrometry data constrain the relative positions of interacting components through distance restraints in the likelihood function. Cryo-EM density maps guide the overall shape at higher organizational levels, with lower-resolution regions appropriately weighted according to their uncertainty. This hierarchical organization allows BHM to handle mixed-resolution data naturally—precise atomic coordinates for well-structured domains can coexist with diffuse probability clouds for flexible regions. Furthermore, BHM excels at incorporating population-level data from techniques like SAXS or ion mobility mass spectrometry by treating them as ensemble averages rather than constraints on individual structures. The Bayesian framework also enables the rational inclusion of prior knowledge about protein interactions, interface preferences, and excluded volume, with the posterior distributions revealing which structural features are well-determined by the data versus those that remain ambiguous. 
+,  making it necessary to characterize them in their native cellular environment
+
+(Overview of the paper structure) In this paper, we first describe the mathematical foundation of our BHM approach and how it represents protein assemblies as nested probabilistic structures with defined dependencies between organizational levels. We describe the details of our approach, including model representation, formulation of data likelihoods and priors to integrate diverse sources of information, Markov Chain Monte Carlo sampling implementation, and model validation and assessment strategies. Next, we demonstrate the method's capabilities through application to a toy model system inspired by the nuclear pore complex. We show how the approach recovers the correct architecture despite limited information, and that we make no assumptions regarding the system symmetry. We then discuss how this framework can be extended to other heterogeneous biological assemblies and how different data types could be used for BHM. Finally, we highlight how this method complements existing structural biology techniques and might enable new insights into the organization of complex cellular machinery.
+
+\section{Methods}\label{sec2}
+\subsection{Bayesian hierarchical model formulation}
+The Bayesian approach \cite{Rieping05Science309p303} estimates the probability of a model, given information available about the system, including both prior knowledge and newly acquired experimental data. The model $M=(X,\{\alpha_i\})$ includes the structure coordinates $X$ and additional parameters $\{\alpha_i\}$ (below). Using Bayes’ theorem, the posterior probability $P(M|D,I)$, given data $D$ and prior knowledge $I$, is
+ 
+\begin{equation}
+    p(M|D,I) \propto p(D|M,I) \cdot p(M|I)
+\end{equation}
+
+where the likelihood function $p(D|M,I)$ is the probability
+of observing the data $D$ given $I$ and $M$ and $p(M|I)$ that is independent of the data is called the prior distribution. 
+
+Bayesian inference provides a powerful framework for integrating prior knowledge with experimental data, making it a valuable tool for estimating model parameters under uncertainty. In structural biology, this approach excels by combining diverse data sources—such as X-ray crystallography, cryo-electron microscopy, and nuclear magnetic resonance—to enhance our understanding of complex molecular systems. Despite its strengths, the standard Bayesian approach may encounter significant limitations when applied to the determination of structures for large and heterogeneous protein complexes, particularly when the experimental data $D$ are sparse, noisy and collected from multiple sources with varying levels of precision and precision. In such cases, the high dimensionality of the structural coordinates $X$ and the additional parameters $\{\alpha_i\}$ in the model $M=(X,\{\alpha_i\})$ can lead to a posterior distribution $p(M|D,I)$ that remains poorly constrained by the limited data. The sparsity of $D$ implies that the likelihood function $p(D|M,I)$ may lack sufficient information to effectively update the prior $p(M|I)$, resulting in substantial uncertainty in the estimated structure. Furthermore, the heterogeneity of the data sources complicates the construction of a unified likelihood function, as it may fail to adequately reflect the differing reliabilities and precisions inherent to each experimental measurement, potentially leading to biased or inefficient inference.
+
+To address these challenges, hierarchical Bayesian modeling emerges as a necessary and more robust framework by structuring the prior distribution $p(M|I)$ in a multi-level manner. In this approach, hyperparameters are introduced to govern the distributions of lower-level parameters, such as those specific to each experimental dataset (e.g., noise characteristics or biases), which can be modeled as being drawn from a shared distribution. This hierarchical structure allows the model to pool information across diverse data sources while accounting for their individual properties, thereby improving the accuracy and efficiency of the inference process. Moreover, hierarchical priors can be tailored to capture the multi-scale organization of protein structures, incorporating prior knowledge at various levels---from atomic coordinates $X$ to higher-order structural features---thus reflecting the inherent complexity of the system. Consequently, hierarchical Bayesian inference provides a powerful methodology to integrate sparse and noisy experimental data, enabling more reliable determination of the structures of complex protein assemblies.
+
+In hierarchical Bayesian modeling, the prior distribution \( p(M|I) \) for the model \( M = (X, \{\alpha_i\}) \) is structured hierarchically by introducing hyperparameters \(\theta\). These hyperparameters govern the distribution of the model parameters \(\{\alpha_i\}\). The prior can be decomposed as follows:
+
+\[
+p(M|I) = p(X, \{\alpha_i\} | I) = p(X | \{\alpha_i\}, I) \cdot p(\{\alpha_i\} | \theta, I) \cdot p(\theta | I)
+\]
+
+This decomposition allows the model to share information across the parameters \(\{\alpha_i\}\) through \(\theta\), a hallmark of hierarchical modeling. Here, \( p(X | \{\alpha_i\}, I) \) represents the prior distribution over the structural coordinates \( X \), which may depend on the parameters \(\{\alpha_i\}\). The term \( p(\{\alpha_i\} | \theta, I) \) is the conditional prior for the parameters \(\{\alpha_i\}\), governed by the hyperparameters \(\theta\), and \( p(\theta | I) \) is the hyperprior, encoding prior knowledge about \(\theta\).
+
+The likelihood function \( p(D | M, I) \) reflects the hierarchical structure by modeling the data \( D \) as a collection of datasets \( D = \{D_j\} \), each associated with its own parameter \(\alpha_j\). The likelihood can be written as:
+
+\[
+p(D | M, I) = \prod_j p(D_j | X, \alpha_j, I)
+\]
+
+where \( D_j \) denotes a subset of the data (e.g., observations related to a specific protein or experimental condition), and \( p(D_j | X, \alpha_j, I) \) is the likelihood of the data \( D_j \) given the shared structural coordinates \( X \) and the specific parameter \(\alpha_j\). The product \(\prod_j\) assumes conditional independence of the datasets given the model parameters, allowing each \( D_j \) to be influenced by both the global structure \( X \) and local parameters \(\alpha_j\).
+
+The posterior distribution \( p(M | D, I) \) combines the hierarchical prior and the likelihood using Bayes' theorem. It is expressed as:
+
+\[
+p(X, \{\alpha_i\}, \theta | D, I) \propto p(D | X, \{\alpha_i\}, I) \cdot p(X | \{\alpha_i\}, I) \cdot p(\{\alpha_i\} | \theta, I) \cdot p(\theta | I)
+\]
+
+This posterior jointly estimates \( X \), \(\{\alpha_i\}\), and \(\theta\), enabling the model to learn from the data at multiple levels: the global structure (\( X \)), the individual parameters (\(\{\alpha_i\}\)), and the hyperparameters (\(\theta\)). Here, \( p(D | X, \{\alpha_i\}, I) \) is the likelihood of the full dataset \( D \), which can be expanded as \(\prod_j p(D_j | X, \alpha_j, I)\), while the remaining terms come from the hierarchical prior.
+
+%A hierarchical Bayesian model is defined as a Bayesian statistical model where the 
+%prior distribution $p(M|I)$ is expressed as a product of conditional distributions given by
+%\begin{equation}
+%p(M|I) = \int p_1(M|M_1,I)p_2(M_1|M2,I)\ldots p_{n+1}%(M_n|I)dM_1\ldots dM_n.
+%\end{equation}
+%Here $M$ represents the parameters of primary interest and $\{M_1, M_2\ldots,M_n\}$
+%are called as hyperparameters at successive levels, each conditioning the distribution of the parameters below it. This decomposition reflects a multi-level dependency structure, where each level introduces additional flexibility and incorporates prior knowledge or constraints at different scales. The marginal distribution $p_{n+1}(M_n|I)$ serves as the top level prior, anchoring the hierarchy.
+
+%In the general case, this structure allows the model to capture complex relationships by breaking them into manageable conditional dependencies. For instance, $M$ might represent the quantities we aim to infer directly from the data $D$, with its distribution $p_1(M|M_1,I)$ governed by the hyperparameters $M_1$ which
+%in turn depends on $M_2$ via $p_2(M_1|M_2,I)$ and so forth up to $M_n$. The full joint distribution is given by
+%\begin{equation}
+%p(M,M_1,M_2,\ldots, M_n|I) = p_1(M|M_1,I)p_2(M_1|M2,I)\ldots p_{n+1}(M_n|I)
+%\end{equation}
+%and the posterior, incorporating the data then becomes
+%\begin{equation}
+%    p(M,M_1,M_2,\ldots, M_n|D,I) \propto p(M|D,I)p_1(M|M_1,I)\ldots p_{n}(M_{n-1}|M_n,I)p_{n+1}(M_n|I) \qquad
+%\end{equation}
+%This formulation enables inference across all levels simultaneously, balancing data-driven evidence with structured prior beliefs.
+%\newline
+
+\subsection{Representation of the hierarchical structure}
+\begin{tikzpicture}[
+  node distance=1.5cm and 2cm,  % Vertical and horizontal spacing
+  hyperparam/.style={circle, draw, fill=blue!10, minimum size=1cm, font=\normalsize},
+  structure/.style={circle, draw, fill=red!10, minimum size=1cm, font=\normalsize},
+  parameter/.style={circle, draw, fill=green!10, minimum size=1cm, font=\normalsize},
+  data_dense/.style={rectangle, draw, fill=gray!20, minimum size=1cm, font=\normalsize},
+  data_sparse/.style={rectangle, draw=dashed, fill=gray!20, minimum size=1cm, font=\normalsize},
+  arrow/.style={->, thick},
+  label/.style={font=\small}
+]
+
+% Structural states (X1, X2, X3) at the top
+\node[structure] (X1) {$X_1$};
+\node[structure, right=2cm of X1] (X2) {$X_2$};
+\node[structure, right=2cm of X2] (X3) {$X_3$};
+
+% Hyperparameter node
+\node[hyperparam, above=1.5cm of X2] (theta) {$\theta$};
+
+% Experiment-specific parameter nodes
+\node[parameter, below left=1.5cm and 1cm of X1] (alpha1) {$\alpha_1$};
+\node[parameter, below=1.5cm of X2] (alpha2) {$\alpha_2$};
+\node[parameter, below right=1.5cm and 1cm of X3] (alpha3) {$\alpha_3$};
+
+% Dataset nodes
+\node[data_dense, below=1.5cm of alpha1] (D1) {$D_1$};
+\node[data_sparse, below=1.5cm of alpha2] (D2) {$D_2$};
+\node[data_dense, below=1.5cm of alpha3] (D3) {$D_3$};
+
+% Arrows from hyperparameter to experiment-specific parameters
+\draw[arrow] (theta) -- (alpha1);
+\draw[arrow] (theta) -- (alpha2);
+\draw[arrow] (theta) -- (alpha3);
+
+% Arrows from structural states to datasets
+\draw[arrow] (X1) -- (D1);
+\draw[arrow] (X2) -- (D2);
+\draw[arrow] (X3) -- (D3);
+
+% Arrows from experiment-specific parameters to datasets
+\draw[arrow] (alpha1) -- (D1);
+\draw[arrow] (alpha2) -- (D2);
+\draw[arrow] (alpha3) -- (D3);
+
+% Labels for clarity
+\node[label, above=0.1cm of X2] {structural states (inferred)};
+\node[label, above=0.1cm of theta] {hyperparameter};
+\node[label, left=0.1cm of alpha1] {experiment params};
+\node[label, below=0.1cm of D1] {dense};
+\node[label, below=0.1cm of D2] {sparse};
+\node[label, below=0.1cm of D3] {dense};
+
+\end{tikzpicture}
+
+
+(Representation of the hierarchical structure)
+(Definition of prior distributions at each level)
+(Specification of conditional dependencies between levels)
+
+\subsection{Model representation, spatial restraints, and prior distributions
+}
+(Formulation of likelihood functions for different data types)
+(Priors)
+(Treatment of repeating structural motifs)
+(Treatment of localization information)
+(Treatment of spatial relationships)
+
+
+\subsection{Model Sampling}
+(sampling strategies)
+
+\subsection{Analysis and validation}
+(Convergence criteria and assessment)
+(Ensemble analysis approaches)
+\ignacia{Illustration: Nuclear pore complex inspired toy model (add figure)}
+%------------------------------------------------
+\subsubsection{Description of the toy model system}
+
+Input information
+Model representation and spatial restraints
+
+The toy model problem consists of three types of particles 
+A, B and C with copy numbers given by $N_A=8$, $N_B=8$ and $N_C=16$,
+respectively. The input information consists of a noisy measurement 
+of the pairwise distances between particles $A-A$, $A-B$ and $B-C$
+with associated standard deviations treated as parameters, 
+$\sigma_{AA}$, $\sigma_{AB}$ and $\sigma_{BC}$.
+The ideal ground truth structure 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ideal_structure.pdf}
+    \caption{Ideal ground truth structure for the toy model problem with 
+    particles A, B and C being colored red, blue and green, respectively.}
+    \label{fig:enter-label}
+\end{figure}
+\section{Results}
+
+\subsection{Comparison with traditional integrative modeling}
+\begin{itemize}
+\item TODO: Create the toy model problem within IMP and use two different kinds of restraints:
+the first, add the best score pair distance restraints, the second, add all vs all pair distance 
+restraints.
+\end{itemize}
+(Scoring analysis)
+
+(Convergence analysis)
+(Model analysis)
+
+Sensitivity to hyperparameter choices
+(Structural analysis)
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/combined_kde_plots.pdf}
+    \caption{Evolution of the $\sigma$ parameters as a function of the sampler sequence}
+    \label{fig:enter-label}
+\end{figure}
+Analysis of structural variability among repeated elements
+Advantages of BHM over treating each instance independently
+Recovery of structural patterns with limited data
+
+\section{Discussion}
+(Summary of key advances) This work addresses a critical gap in structural biology by introducing a framework for integrative structure modeling of protein assemblies with compositional variability and conformational heterogeneity. By implementing a hierarchical Bayesian approach, we provide a probabilistic representation that naturally accommodates the multi-scale organization and inherent heterogeneity of complex protein assemblies. Our method explicitly models repeating structural motifs and variable stoichiometries, enabling the structural characterization of assemblies like the nuclear pore complex where symmetry is incomplete and composition varies. Unlike methods that require homogeneous samples or impose rigid constraints, our approach embraces structural diversity by producing ensembles that quantify uncertainty and capture conformational variability. This framework therefore extends the reach of structural biology into previously inaccessible regimes of macromolecular organization where function emerges from dynamic interactions rather than static arrangements.
+
+These assemblies might exhibit variable stoichiometry, the presence of conformational heterogeneity of their components, and transient interactions with binding partners. 
+
+\subsection{(Biologically relevant applications)}
+
+(Cryo-ET)
+(Genetic interaction mapping): Genetic interactions report how the effect of one mutation is affected by the presence of a second mutation. These relationships are often used to identify functional relationships among genes, including biological pathways24–26 and protein complexes.27–29 Two examples include point-mutant epistatic miniarray profile (pE-MAP)30,31 and deep mutational scanning (DMS).32 Similar to residue coevolution analysis that uses correlated sequence variations to model proteins and their complexes,33–36 quantitative measurements of genetic interactions be used for structural modeling.12,13,15 In contrast to coevolution methods that use natural sequence variation that sparsely samples the sequence landscape under a variety of selection pressures, high-throughput genetic perturbation experiments characterize the sequence-function landscape under controlled experimental conditions. However, critical challenges of interpreting genetics interaction data include disentangling direct and indirect relationships between residue positions34,37 and inferring the roles of conformational heterogeneity and allostery.38,39 
+
+(In vivo qXL-MS): In XL-MS, protein complexes are covalently stabilized by cross-linkers and digested, followed by identification of the cross-linked peptides by mass spectrometry (MS).21 XL-MS has proven effective in mapping protein-protein interactions (PPIs) in vitro and in vivo and providing structural information for integrative/hybrid modeling. Additionally, qXL-MS enables dissenting the structural dynamics of protein assemblies and performing comparative analysis under different conditions, which, in turn, allows assessing condition-dependent structural changes. Additionally, strategies that couple in vivo qXL-MS with isotope labeling have been to identify novel protein assemblies, determining their interaction dynamics, and distinguishing transients from stable interactions.40,41 However, critical challenges in interpreting in vivo qXL-MS data include the inherent compositional and structural heterogeneity of the samples and ambiguity associated with assigning cross-linked peptides to specific components.
+
+(AI): Recent advances in deep-learning have revolutionized protein structure prediction; for example, AlphaFold (AF)1 and RoseTTAfold2 can often produce models with atomic accuracies comparable to those of experimental methods.3,4 However, in general, these AI-based approaches generate single structures rather than structural ensembles, do not capture the conformational mechanisms like allostery,5 do not describe the conformational ensembles of intrinsically disordered regions,6 and have limited capabilities describing the structures of large protein complexes.7,8 
+
+(Methodological limitations) Having to define the levels, data sparseness, and same protein occurring in different contexts 
+
+(Future directions)
+
+(Advantages of using in vivo/in situ data) Moreover, traditional structural biology methods often rely on purified samples and describe one or few conformers. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "Acknowledgement" section can be given in all manuscript
+%% classes.  This should be given within the "acknowledgement"
+%% environment, which will make the correct section or running title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgement}
+
+Please use ``The authors thank \ldots'' rather than ``The
+authors would like to thank \ldots''.
+
+The author thanks Mats Dahlgren for version one of \textsf{achemso},
+and Donald Arseneau for the code taken from \textsf{cite} to move
+citations after punctuation. Many users have provided feedback on the
+class, which is reflected in all of the different demonstrations
+shown in this document.
+
+\end{acknowledgement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The same is true for Supporting Information, which should use the
+%% suppinfo environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{suppinfo}
+
+A listing of the contents of each file supplied as Supporting Information
+should be included. For instructions on what should be included in the
+Supporting Information as well as how to prepare this material for
+publications, refer to the journal's Instructions for Authors.
+
+The following files are available free of charge.
+\begin{itemize}
+  \item Filename: brief description
+  \item Filename: brief description
+\end{itemize}
+
+\end{suppinfo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The appropriate \bibliography command should be placed here.
+%% Notice that the class file automatically sets \bibliographystyle
+%% and also names the section correctly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{manuscript}
+
+\end{document}
